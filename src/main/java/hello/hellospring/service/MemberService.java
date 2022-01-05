@@ -3,8 +3,7 @@ package hello.hellospring.service;
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -13,7 +12,7 @@ public class MemberService {
     // 테스트 단축키 : 컨트로 쉬프트 t
     private final MemberRepository memberRepository;
 
-
+    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
@@ -37,7 +36,6 @@ public class MemberService {
    public List<Member> findMembers(){
         return memberRepository.findAll();
     }
-
     public Optional<Member> findOne(Long memberId){
         return memberRepository.findById(memberId);
     }
